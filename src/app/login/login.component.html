@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <div class="login-page">
+  <div class="form">
+  <div class="container">
+  <form id="contact" action="" method="post">
+    <h1>Login</h1>
+    <div>
+      <input placeholder="Enter Username" type="text" [(ngModel)]="username" name="username" tabindex="1" required autofocus>
+    </div>
+    <div>
+      <input placeholder="Enter Password" type="pass" [(ngModel)]="password" name="password" tabindex="3" required>
+    </div>
+    <div>
+      <button id="loginbutton" (click)="loginFunction()">Login</button>
+        <p>
+          New to the website?
+        <button id="signupbutton" (click)="signupFunction()"> Signup</button>
+        </p>
+    </div>
+
+  </form>
+</div>
+</div>
+</div>
+</body>
+</html>

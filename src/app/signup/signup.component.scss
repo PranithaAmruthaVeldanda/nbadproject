@@ -1,0 +1,51 @@
+.login-page{
+	width: 360px;
+	padding: 0% 0 0.5%;
+	margin: auto;
+}
+h1{
+  color:  #3d4174;
+}
+.form{
+	position: relative;
+	z-index: 1;
+  background: #c1d1f5;
+	max-width: 400px;
+  margin: 10px auto 50px;
+  padding: 5px;
+	text-align: center;
+
+}
+
+.form input{
+	font-family: "Roboto",sans-serif;
+	outline: 1;
+	background:#ffffff;
+	width: 90%;
+	border: 0;
+	margin: 0 0 10px;
+	padding: 15px;
+	box-sizing: border-box;
+	font-size: 15px;
+
+}
+
+.form button{
+  text-decoration: none;
+  background: #535788;
+  color: #ffffff;
+  width: 90px;
+  height:30px;
+}
+
+.form .message{
+	margin: 15px 0 0;
+	color: aliceblue;
+	font-size: 12px;
+}
+
+
+.form .message a{
+	color: #404fa8;
+	text-decoration:none;
+}
