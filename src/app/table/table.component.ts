@@ -21,11 +21,14 @@ export class TableComponent implements OnInit {
   budgetData: Observable<BudgetSchema[]>;
 
   data = []
+  public loggedInUserName:any
+  constructor(private _dataService: DataService) {
+    this.loggedInUserName = this._dataService.loggedInUserName;
+   }
 
-  constructor(private _dataService: DataService) { }
 
   ngOnInit(): void {
-    this._dataService.getData()
+    this._dataService.getData(this.loggedInUserName)
     .subscribe((res:any)=>{
       this.data = res
       console.log(this.data);

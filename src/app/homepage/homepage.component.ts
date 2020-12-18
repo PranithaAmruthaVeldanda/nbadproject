@@ -11,20 +11,12 @@ import { DataService } from '../data.service';
   styleUrls: ['./homepage.component.scss']
 })
 export class HomepageComponent implements OnInit {
+  public loggedInUserName:any;
 
   public dataSource = {
     datasets: [{
         data: [],
-        backgroundColor : [
-          '#ffcd56',
-          '#ff6384',
-          '#36a2eb',
-          '#fd6b19',
-          '#808000',
-          '#E74C3C ',
-          '#A569BD ',
-          '#33FFE0'
-            ]
+        backgroundColor : []
     }],
 
     labels: [
@@ -36,10 +28,11 @@ export class HomepageComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.dataService.getData().subscribe((data: any) => {
+    this.dataService.getData(this.loggedInUserName).subscribe((data: any) => {
       for (let i = 0; i < data.length; i++) {
         this.dataSource.datasets[0].data[i] = data[i].budget;
         this.dataSource.labels[i] = data[i].title;
+        this.dataSource.datasets[0].backgroundColor[i] = data[i].color;
         this.createChart();
       }
     });
@@ -52,6 +45,10 @@ export class HomepageComponent implements OnInit {
         type: 'pie',
         data : this.dataSource
     });
+}
+
+AddBudget(){
+  this.router.navigate(['/addbudget']);
 }
 
 

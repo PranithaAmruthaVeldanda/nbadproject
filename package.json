@@ -25,6 +25,7 @@
     "d3": "^6.2.0",
     "express-jwt": "^6.0.0",
     "jsonwebtoken": "^8.5.1",
+    "ng2-charts": "^2.2.3",
     "ngx-toaster": "^1.0.1",
     "ngx-toastr": "^13.2.0",
     "rxjs": "~6.6.0",

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BarChartComponent } from './bar-chart.component';
+import { MaxbudgetpieComponent } from './maxbudgetpie.component';
 
-describe('BarChartComponent', () => {
-  let component: BarChartComponent;
-  let fixture: ComponentFixture<BarChartComponent>;
+describe('MaxbudgetpieComponent', () => {
+  let component: MaxbudgetpieComponent;
+  let fixture: ComponentFixture<MaxbudgetpieComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BarChartComponent ]
+      declarations: [ MaxbudgetpieComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BarChartComponent);
+    fixture = TestBed.createComponent(MaxbudgetpieComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

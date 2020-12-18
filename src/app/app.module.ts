@@ -18,11 +18,14 @@ import { SignupComponent } from './signup/signup.component';
 import { LoginPageComponent } from './login/login.component';
 import { AddbudgetComponent } from './addbudget/addbudget.component';
 import { TableComponent } from './table/table.component';
-import { BarChartComponent } from './bar-chart/bar-chart.component';
 import { DataService } from './data.service';
 import { ToastrModule } from 'ngx-toastr';
 import {BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LogoutComponent } from './logout/logout.component';
+import { MaxbudgetpieComponent } from './maxbudgetpie/maxbudgetpie.component';
+import { BarComponent } from './bar/bar.component';
+import { ChartsModule } from 'ng2-charts';
+
 
 
 
@@ -43,8 +46,9 @@ import { LogoutComponent } from './logout/logout.component';
     SignupComponent,
     AddbudgetComponent,
     TableComponent,
-    BarChartComponent,
-    LogoutComponent
+    LogoutComponent,
+    MaxbudgetpieComponent,
+    BarComponent
   ],
   imports: [
     BrowserModule,
@@ -52,6 +56,7 @@ import { LogoutComponent } from './logout/logout.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
+    ChartsModule,
     ToastrModule.forRoot({
       timeOut: 3000,
       progressAnimation: 'increasing',

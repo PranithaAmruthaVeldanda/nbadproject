@@ -45,7 +45,6 @@ const routes: Routes = [
     path:'logout',
     component: LoginPageComponent
   },
-
   {
     path: '**',
     component: P404Component

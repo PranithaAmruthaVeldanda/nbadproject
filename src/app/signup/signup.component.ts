@@ -14,7 +14,7 @@ export class SignupComponent implements OnInit {
 
   username:string;
   password:string;
-  repassword:string;
+  retypePassword:string;
   email:string
 
   public userData = [];
@@ -31,11 +31,11 @@ export class SignupComponent implements OnInit {
 
 
   duplicateUserName(){
-    this.toastr.warning('User with this name already exixts. Please proceed to login page!!');
+    this.toastr.warning('Username already exists');
   }
 
   incompleteDetails(){
-    this.toastr.error('Please enter all the fields','Warning');
+    this.toastr.error('Please enter all the fields');
   }
 
 
@@ -44,12 +44,12 @@ export class SignupComponent implements OnInit {
     record['username'] = this.username;
     record['password'] = this.password;
     record['email'] = this.email;
-    record['repassword'] = this.repassword;
+    record['retypePassword'] = this.retypePassword;
     console.log(this.userData);
     for(let i=0;i<this.userData.length;i++){
       if(this.userData[i].username == this.username){
         console.log("There exists a user with same username");
-        this.toastr.warning('User with this name already exixts. Please proceed to login page!!');
+        this.toastr.warning('Username already exists');
         return;
       }
     }
@@ -61,10 +61,10 @@ export class SignupComponent implements OnInit {
     record['username'] = this.username;
     record['password'] = this.password;
     record['email'] = this.email;
-    record['repassword'] = this.repassword;
+    record['retypePassword'] = this.retypePassword;
     console.log(JSON.stringify(record));
-      if(!this.username || !this.password || !this.email || !this.repassword){
-        this.toastr.error('Please enter all the fields','Warning');
+      if(!this.username || !this.password || !this.email || !this.retypePassword){
+        this.toastr.error('Please enter all the fields');
         this.incompleteDetails();
         return;
       }else{

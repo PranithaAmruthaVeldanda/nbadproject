@@ -20,7 +20,7 @@ export class PieComponent implements OnInit {
 
     private radius = Math.min(this.width, this.height) / 2 - this.margin;
     private colors;
-
+    public loggedInUserName:any
 
     constructor(public dataService : DataService, private http: HttpClient) { }
 
@@ -31,7 +31,8 @@ export class PieComponent implements OnInit {
         this.createColors();
         this.drawChart();
       } else { */
-      this.dataService.getData().subscribe((data: any) => {
+      this.loggedInUserName = this.dataService.loggedInUserName;
+      this.dataService.getData(this.loggedInUserName).subscribe((data: any) => {
         this.data = data;
         this.createSvg();
         this.createColors();

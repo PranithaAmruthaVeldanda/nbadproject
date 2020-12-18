@@ -7,9 +7,13 @@ td {
 }
 
 table tr:nth-child(odd) {
-  background-color:#D6EAF8  ;
+  background-color: #c1d1f5 ;
 }
 
 table tr:nth-child(even) {
-  background-color:#D6EAF8  ;
+  background-color:#c1d1f5 ;
+}
+table {
+  margin-left: auto;
+  margin-right: auto;
 }

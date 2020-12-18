@@ -1,13 +1,8 @@
-
 <main class="container center" id = "main">
-
-  <div class="page-area">
+<div class="page-area">
     <pb-breadcrumbs>
-      <h1>BreadCrumb component</h1>
+      <h3>BreadCrumb component</h3>
       <a href ="">BreadCrumbs</a>
-      <div>
-        This is to illustrate the new bread crumb component
-      </div>
     </pb-breadcrumbs>
 
     <pb-article>
@@ -48,28 +43,40 @@
 
       <!-- This is a Semantic HTML Change -->
 
+      <pb-addbudget></pb-addbudget>
+      <pb-table></pb-table>
+
+
+      <pb-article>
+      <h1>Your Maximum budget Piechart</h1>
+      <div>
+          <canvas id="maxbudgetpie" width="400" height="400" style="width:350px;height:350px"></canvas>
+          <pb-maxbudgetpie></pb-maxbudgetpie>
+      </div>
+    </pb-article>
+
       <article>
-          <h1>Pie Chart</h1>
-          <p>
-              <canvas id="myChart" width="400" height="400"></canvas>
-          </p>
-      </article>
+        <h1>Your Current budget PieChart </h1>
+        <p>
+            <canvas id="myChart" width="400" height="400"></canvas>
+        </p>
+    </article>
+
+
       <article id="d3chart">
         <figure id="pie">
             <pb-pie></pb-pie>
         </figure>
-    </article>
+     </article>
+
     <article id="barchart">
-        <h1>Bar chart using d3.js</h1>
+        <h1>Dual Bar-Chart</h1>
         <figure id="bar">
-            <pb-bar-chart></pb-bar-chart>
+          <pb-bar></pb-bar>
         </figure>
     </article>
 
-
   </div>
-  <pb-addbudget></pb-addbudget>
+
   </main>
   <!-- This is a Semantic HTML Change -->
-
-

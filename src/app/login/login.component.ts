@@ -23,7 +23,7 @@ export class LoginPageComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  signupFunction(){
+  signup(){
     this.router.navigate(['/signup'])
   }
 
@@ -33,13 +33,13 @@ export class LoginPageComponent implements OnInit {
     console.log("in");
   }
   loginSuccessful(){
-    this.toastr.success('Logged In','Success');
+    this.toastr.success('Successfully Logged In');
   }
 
   loginFailure(){
-    this.toastr.error('Invalid Credentials. Please enter valid credentials','Failure');
+    this.toastr.error('Invalid Credentials');
   }
-  loginFunction(){
+  login(){
     let record = {};
     record['username'] = this.username;
     record['password'] = this.password;
