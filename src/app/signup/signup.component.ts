@@ -27,15 +27,6 @@ export class SignupComponent implements OnInit {
   }
 
 
-  duplicateUserName(){
-    this.toastr.warning('Username already exists');
-  }
-
-  incompleteDetails(){
-    this.toastr.error('Please enter all the fields');
-  }
-
-
   loginFunction(){
     let record = {};
     record['username'] = this.username;
@@ -62,7 +53,6 @@ export class SignupComponent implements OnInit {
     console.log(JSON.stringify(record));
       if(!this.username || !this.password || !this.email || !this.retypePassword){
         this.toastr.error('Please enter all the fields');
-        this.incompleteDetails();
         return;
       }else{
         console.log("In else")

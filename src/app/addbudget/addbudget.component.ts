@@ -19,13 +19,6 @@ export class AddbudgetComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  expenseAddToast(){
-    this.toastr.success('Expense added successfully.View your charts','Success');
-  }
-
-  duplicateExpenseTitle(){
-    this.toastr.error('Expense already exists. Please add one with a new name','Error');
-  }
 
   incompleteDetails(){
     this.toastr.warning('Please enter all the fields','Warning');
@@ -56,14 +49,12 @@ export class AddbudgetComponent implements OnInit {
         this.budget = null;
         this.maxbudget = null;
         this.title = "";
-        this.expenseAddToast();
         this.ngZone.run(() => {
           this.router.navigate(['/homepage']);
         });
       },
       err => {
         console.log("Same title already exists");
-        this.duplicateExpenseTitle();
         this.title = "";
       })
   }

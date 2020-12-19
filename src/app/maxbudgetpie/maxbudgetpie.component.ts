@@ -12,6 +12,7 @@ import { Chart } from 'chart.js'
 export class MaxbudgetpieComponent implements OnInit {
   public dataSource = {
     datasets: [{
+        label: 'Original Budget',
         data: [],
         backgroundColor : [
         ]

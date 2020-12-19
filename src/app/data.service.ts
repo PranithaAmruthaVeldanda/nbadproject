@@ -48,7 +48,7 @@ getData(username): Observable<any> {
 
 addBudgetdata(data:BudgetSchema){
   const token = localStorage.getItem('accessToken');
-  const headers = {'content-type': 'application/json', 'Authorization' : 'Bearer ${token}'};
+  const headers = {'content-type': 'application/json', 'Authorization' : `Bearer ${token}`};
   const body=JSON.stringify(data);
   console.log(body)
   return this.http.post('https://personalbudget-backend.herokuapp.com/budget',body,{'headers':headers});
@@ -109,7 +109,7 @@ private readonly NAMES = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'];
           localStorage.setItem('exp',res.exp);
           this.isUserLoggedIn.next(true);
           this.router.navigate(['/homepage']);
-          this.setTimer(true);
+          //this.setTimer(true);
         },err=>{
             this.invaliduser();
         })

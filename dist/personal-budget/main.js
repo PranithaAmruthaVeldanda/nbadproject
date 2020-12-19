@@ -299,12 +299,6 @@ class AddbudgetComponent {
     }
     ngOnInit() {
     }
-    expenseAddToast() {
-        this.toastr.success('Expense added successfully.View your charts', 'Success');
-    }
-    duplicateExpenseTitle() {
-        this.toastr.error('Expense already exists. Please add one with a new name', 'Error');
-    }
     incompleteDetails() {
         this.toastr.warning('Please enter all the fields', 'Warning');
     }
@@ -331,13 +325,11 @@ class AddbudgetComponent {
                 this.budget = null;
                 this.maxbudget = null;
                 this.title = "";
-                this.expenseAddToast();
                 this.ngZone.run(() => {
                     this.router.navigate(['/homepage']);
                 });
             }, err => {
                 console.log("Same title already exists");
-                this.duplicateExpenseTitle();
                 this.title = "";
             });
         }
@@ -447,6 +439,7 @@ class HomepageComponent {
         };
     }
     ngOnInit() {
+        this.loggedInUserName = this.dataService.loggedInUserName;
         this.dataService.getData(this.loggedInUserName).subscribe((data) => {
             for (let i = 0; i < data.length; i++) {
                 this.dataSource.datasets[0].data[i] = data[i].budget;
@@ -457,7 +450,7 @@ class HomepageComponent {
         });
     }
     createChart() {
-        var ctx = document.getElementById("myChart");
+        var ctx = document.getElementById("piechart");
         var myPieChart = new chart_js__WEBPACK_IMPORTED_MODULE_1__["Chart"](ctx, {
             type: 'pie',
             data: this.dataSource
@@ -471,7 +464,7 @@ class HomepageComponent {
     }
 }
 HomepageComponent.ɵfac = function HomepageComponent_Factory(t) { return new (t || HomepageComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_data_service__WEBPACK_IMPORTED_MODULE_3__["DataService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"])); };
-HomepageComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: HomepageComponent, selectors: [["pb-homepage"]], decls: 53, vars: 0, consts: [["id", "main", 1, "container", "center"], ["charset", "UTF-8"], ["name", "viewport", "content", "width=device-width, initial-scale=1.0"], ["name", "description", "content", "Take charge of your personal finances with online budget planner. Our free budget tracker helps you understand your spending and manage your expenses and plans budget wisely to save more money for your brighter financial future. It's very simple, get it today!."], ["name", "robots", "content", "index,follow"], ["property", "og:type", "content", "website"], [1, "page-area"], [1, "container"], [1, "row"], [3, "click"], ["id", "maxbudgetpie", "width", "400", "height", "400", 2, "width", "350px", "height", "350px"], ["id", "myChart", "width", "400", "height", "400"], ["id", "barchart"], ["id", "bar"]], template: function HomepageComponent_Template(rf, ctx) { if (rf & 1) {
+HomepageComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: HomepageComponent, selectors: [["pb-homepage"]], decls: 55, vars: 0, consts: [["id", "main", 1, "container", "center"], ["charset", "UTF-8"], ["name", "viewport", "content", "width=device-width, initial-scale=1.0"], ["name", "description", "content", "Take charge of your personal finances with online budget planner. Our free budget tracker helps you understand your spending and manage your expenses and plans budget wisely to save more money for your brighter financial future. It's very simple, get it today!."], ["name", "robots", "content", "index,follow"], ["property", "og:type", "content", "website"], [1, "page-area"], [1, "container"], [1, "row"], [3, "click"], ["id", "piechart", "width", "400", "height", "400"], ["id", "maxbudgetpie", "width", "400", "height", "400", 2, "width", "350px", "height", "350px"], ["id", "barchart"], ["id", "bar"]], template: function HomepageComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "main", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "head");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](2, "meta", 1);
@@ -527,30 +520,34 @@ HomepageComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefine
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](36, "pb-table");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](37, "pb-article");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](38, "h1");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](39, "Your Maximum budget Linechart");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](40, "div");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](41, "canvas", 10);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](42, "pb-maxbudgetpie");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](36, "pb-article");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](37, "div");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](38, "pb-table");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](43, "article");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](44, "h1");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](45, "Your Current budget PieChart ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](39, "pb-article");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](40, "h1");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](41, "Your Current budget PieChart ");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](46, "p");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](47, "canvas", 11);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](42, "div");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](43, "canvas", 10);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](48, "article", 12);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](49, "h1");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](50, "Dual Bar-Chart");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](44, "pb-article");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](45, "h1");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](46, "Your Maximum budget Linechart");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](51, "figure", 13);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](52, "pb-bar");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](47, "div");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](48, "canvas", 11);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](49, "pb-maxbudgetpie");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](50, "article", 12);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](51, "h1");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](52, "Dual Bar-Chart");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](53, "figure", 13);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](54, "pb-bar");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -701,7 +698,7 @@ class DataService {
     }
     addBudgetdata(data) {
         const token = localStorage.getItem('accessToken');
-        const headers = { 'content-type': 'application/json', 'Authorization': 'Bearer ${token}' };
+        const headers = { 'content-type': 'application/json', 'Authorization': `Bearer ${token}` };
         const body = JSON.stringify(data);
         console.log(body);
         return this.http.post('https://personalbudget-backend.herokuapp.com/budget', body, { 'headers': headers });
@@ -749,7 +746,7 @@ class DataService {
             localStorage.setItem('exp', res.exp);
             this.isUserLoggedIn.next(true);
             this.router.navigate(['/homepage']);
-            this.setTimer(true);
+            //this.setTimer(true);
         }, err => {
             this.invaliduser();
         });
@@ -1873,6 +1870,7 @@ class MaxbudgetpieComponent {
         this._dataService = _dataService;
         this.dataSource = {
             datasets: [{
+                    label: 'Original Budget',
                     data: [],
                     backgroundColor: []
                 }],
@@ -1950,12 +1948,6 @@ class SignupComponent {
     }
     ngOnInit() {
     }
-    duplicateUserName() {
-        this.toastr.warning('Username already exists');
-    }
-    incompleteDetails() {
-        this.toastr.error('Please enter all the fields');
-    }
     loginFunction() {
         let record = {};
         record['username'] = this.username;
@@ -1981,7 +1973,6 @@ class SignupComponent {
         console.log(JSON.stringify(record));
         if (!this.username || !this.password || !this.email || !this.retypePassword) {
             this.toastr.error('Please enter all the fields');
-            this.incompleteDetails();
             return;
         }
         else {

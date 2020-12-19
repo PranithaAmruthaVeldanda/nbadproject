@@ -27,7 +27,7 @@ export class HomepageComponent implements OnInit {
   constructor(private http: HttpClient, public dataService: DataService,private router:Router) { }
 
   ngOnInit(): void {
-
+    this.loggedInUserName = this.dataService.loggedInUserName;
     this.dataService.getData(this.loggedInUserName).subscribe((data: any) => {
       for (let i = 0; i < data.length; i++) {
         this.dataSource.datasets[0].data[i] = data[i].budget;
@@ -40,7 +40,7 @@ export class HomepageComponent implements OnInit {
   }
 
   createChart() : void{
-    var ctx : any = document.getElementById("myChart");
+    var ctx : any = document.getElementById("piechart");
     var myPieChart = new Chart(ctx,{
         type: 'pie',
         data : this.dataSource
@@ -50,9 +50,8 @@ export class HomepageComponent implements OnInit {
 AddBudget(){
   this.router.navigate(['/addbudget']);
 }
-
-callNgOnInit(){
-  this.ngOnInit();
-}
+ callNgOnInit(){
+   this.ngOnInit();
+ }
 
 }

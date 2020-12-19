@@ -18,6 +18,7 @@ interface BudgetSchema{
 })
 export class TableComponent implements OnInit {
 
+
   budgetData: Observable<BudgetSchema[]>;
 
   data = []
