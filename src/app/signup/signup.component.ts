@@ -20,7 +20,7 @@ export class SignupComponent implements OnInit {
   public userData = [];
 
 
-  constructor(private http:HttpClient,private router:Router,public _dataService: DataService, private toastr: ToastrService,private notifyService : NotificationService) { }
+  constructor(private http:HttpClient,private router:Router,public _dataService: DataService, private notifyService : NotificationService) { }
 
 
   ngOnInit(): void {
@@ -37,7 +37,7 @@ export class SignupComponent implements OnInit {
     for(let i=0;i<this.userData.length;i++){
       if(this.userData[i].username == this.username){
         console.log("There exists same username");
-        this.toastr.warning('Username already exists');
+        console.log('Username already exists');
         return;
       }
     }
@@ -52,7 +52,7 @@ export class SignupComponent implements OnInit {
     record['retypePassword'] = this.retypePassword;
     console.log(JSON.stringify(record));
       if(!this.username || !this.password || !this.email || !this.retypePassword){
-        this.toastr.error('Please enter all the fields');
+        console.log('Please enter all the fields');
         return;
       }else{
         console.log("In else")
