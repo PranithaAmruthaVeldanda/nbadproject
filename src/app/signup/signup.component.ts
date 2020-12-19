@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { DataService } from '../data.service';
-import { ToastrService } from 'ngx-toastr';
-import { NotificationService } from '../notification.service';
 
 @Component({
   selector: 'pb-signup',
@@ -20,7 +18,7 @@ export class SignupComponent implements OnInit {
   public userData = [];
 
 
-  constructor(private http:HttpClient,private router:Router,public _dataService: DataService, private notifyService : NotificationService) { }
+  constructor(private http:HttpClient,private router:Router,public _dataService: DataService) { }
 
 
   ngOnInit(): void {
@@ -36,7 +34,6 @@ export class SignupComponent implements OnInit {
     console.log(this.userData);
     for(let i=0;i<this.userData.length;i++){
       if(this.userData[i].username == this.username){
-        console.log("There exists same username");
         console.log('Username already exists');
         return;
       }
@@ -44,6 +41,8 @@ export class SignupComponent implements OnInit {
 
     this.registrationProcess();
   }
+
+
   registrationProcess(){
     let record = {};
     record['username'] = this.username;

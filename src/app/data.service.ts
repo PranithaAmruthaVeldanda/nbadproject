@@ -109,7 +109,7 @@ private readonly NAMES = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'];
           localStorage.setItem('exp',res.exp);
           this.isUserLoggedIn.next(true);
           this.router.navigate(['/homepage']);
-          //this.setTimer(true);
+          this.setTimer(true);
         },err=>{
             this.invaliduser();
         })
