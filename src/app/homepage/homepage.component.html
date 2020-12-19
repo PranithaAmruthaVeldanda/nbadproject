@@ -1,4 +1,16 @@
 <main class="container center" id = "main">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Take charge of your personal finances with online budget planner. Our free budget tracker helps you understand your spending and manage your expenses and plans budget wisely to save more money for your brighter financial future. It's very simple, get it today!."/>
+  <!-- This is a SEO Change -->
+  <meta name="robots" content="index,follow"/> <!-- This is a SEO Change -->
+  <meta property="og:type" content="website" /> <!-- This is a SEO Change -->
+  <title>Budget Planner & Expense Tracker</title> <!-- This is a SEO Change -->
+</head>
+
 <div class="page-area">
     <pb-breadcrumbs>
       <h3>BreadCrumb component</h3>
@@ -23,7 +35,7 @@
             because they know it is all good and accounted for.
         </div>
     </pb-article>
-
+<!-- This is a Semantic HTML Change -->
       <pb-article>
           <h1>Results</h1>
           <div>
@@ -42,13 +54,18 @@
       <!-- This is a Semantic HTML Change -->
 
       <!-- This is a Semantic HTML Change -->
+      <div class="container">
+        <div class="row">
+            <h1>Add your expenses here</h1>
+            <button (click)="AddBudget()">Add New Expense</button>
+        </div>
+      </div>
 
-      <pb-addbudget></pb-addbudget>
       <pb-table></pb-table>
 
 
       <pb-article>
-      <h1>Your Maximum budget Piechart</h1>
+      <h1>Your Maximum budget Linechart</h1>
       <div>
           <canvas id="maxbudgetpie" width="400" height="400" style="width:350px;height:350px"></canvas>
           <pb-maxbudgetpie></pb-maxbudgetpie>
@@ -63,12 +80,6 @@
     </article>
 
 
-      <article id="d3chart">
-        <figure id="pie">
-            <pb-pie></pb-pie>
-        </figure>
-     </article>
-
     <article id="barchart">
         <h1>Dual Bar-Chart</h1>
         <figure id="bar">
@@ -77,6 +88,5 @@
     </article>
 
   </div>
-
   </main>
   <!-- This is a Semantic HTML Change -->

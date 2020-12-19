@@ -23,11 +23,8 @@ export class SignupComponent implements OnInit {
   constructor(private http:HttpClient,private router:Router,public _dataService: DataService, private toastr: ToastrService,private notifyService : NotificationService) { }
 
 
-
   ngOnInit(): void {
   }
-
-
 
 
   duplicateUserName(){

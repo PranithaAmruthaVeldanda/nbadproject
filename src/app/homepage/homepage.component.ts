@@ -51,5 +51,8 @@ AddBudget(){
   this.router.navigate(['/addbudget']);
 }
 
+callNgOnInit(){
+  this.ngOnInit();
+}
 
 }

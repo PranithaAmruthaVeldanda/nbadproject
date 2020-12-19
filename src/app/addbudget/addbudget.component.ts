@@ -1,7 +1,7 @@
 import { Component, NgZone, OnInit } from '@angular/core';
 import { Data, Router } from '@angular/router';
-import { DataService } from '../data.service';
 import { ToastrService } from 'ngx-toastr';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'pb-addbudget',
@@ -14,13 +14,13 @@ export class AddbudgetComponent implements OnInit {
   maxbudget:number;
   title:string
 
-  constructor(private _dataService:DataService,private toastr: ToastrService,private router:Router,private ngZone:NgZone) { }
+  constructor(private dataService:DataService,private toastr: ToastrService,private router:Router,private ngZone:NgZone) { }
 
   ngOnInit(): void {
   }
 
   expenseAddToast(){
-    this.toastr.success('Expense Successfully Added. Check you homepage','Success');
+    this.toastr.success('Expense added successfully.View your charts','Success');
   }
 
   duplicateExpenseTitle(){
@@ -39,19 +39,18 @@ export class AddbudgetComponent implements OnInit {
 
   sendExpense(){
     let record = {};
-
     record['budget'] = this.budget;
     record['maxbudget'] = this.maxbudget;
     record['title'] = this.title.charAt(0).toUpperCase()+this.title.slice(1);
     record['color'] = this.randomColorGen();
-    record['username'] = this._dataService.loggedInUserName;
+    record['username'] = this.dataService.loggedInUserName;
 
     if(!this.budget || !this.maxbudget || !this.title){
       this.incompleteDetails();
       return;
     }
     else{
-    this._dataService.addBudgetdata(record)
+    this.dataService.addBudgetdata(record)
       .subscribe(data =>{
         console.log(data);
         this.budget = null;

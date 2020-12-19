@@ -42,8 +42,8 @@ export class MaxbudgetpieComponent implements OnInit {
 
   createChart(){
     var ctx : any = document.getElementById("maxbudgetpie")
-    var myPieChart = new Chart(ctx,{
-        type: 'pie',
+    var myLineChart = new Chart(ctx,{
+        type: 'line',
         data : this.dataSource
     })
 }
