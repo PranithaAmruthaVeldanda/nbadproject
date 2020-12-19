@@ -45,7 +45,7 @@ export class SignupComponent implements OnInit {
     console.log(this.userData);
     for(let i=0;i<this.userData.length;i++){
       if(this.userData[i].username == this.username){
-        console.log("There exists a user with same username");
+        console.log("There exists same username");
         this.toastr.warning('Username already exists');
         return;
       }
