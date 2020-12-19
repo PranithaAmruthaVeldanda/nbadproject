@@ -706,7 +706,7 @@ class DataService {
         const body = JSON.stringify(username);
         console.log(token);
         const headers = { 'content-type': 'application/json', 'Authorization': `Bearer ${token}` };
-        this.DataObservable = this.http.get('https://personalbudget-backend.herokuapp.com//budget', { headers: headers, params: { userid: username } }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["shareReplay"])());
+        this.DataObservable = this.http.get('https://personalbudget-backend.herokuapp.com/budget', { headers: headers, params: { userid: username } }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["shareReplay"])());
         return this.DataObservable;
     }
     addBudgetdata(data) {
@@ -714,7 +714,7 @@ class DataService {
         const headers = { 'content-type': 'application/json', 'Authorization': 'Bearer ${token}' };
         const body = JSON.stringify(data);
         console.log(body);
-        return this.http.post('https://personalbudget-backend.herokuapp.com//budget', body, { 'headers': headers });
+        return this.http.post('https://personalbudget-backend.herokuapp.com/budget', body, { 'headers': headers });
     }
     generateRandomValue(start, end) {
         return Math.ceil(Math.random() * (end - start) + start);
@@ -736,7 +736,7 @@ class DataService {
     userSignUp(data) {
         const headers = { 'content-type': 'application/json' };
         const body = JSON.stringify(data);
-        return this.http.post('https://personalbudget-backend.herokuapp.com//users', body, { 'headers': headers });
+        return this.http.post('https://personalbudget-backend.herokuapp.com/users', body, { 'headers': headers });
     }
     invaliduser() {
         this.toastr.error("User does not exist. Please proceed to signup page", 'Error');
@@ -748,7 +748,7 @@ class DataService {
         const headers = { 'content-type': 'application/json' };
         const body = JSON.stringify(data);
         console.log(body);
-        return this.http.post('https://personalbudget-backend.herokuapp.com//auth', body, { 'headers': headers }).subscribe((res) => {
+        return this.http.post('https://personalbudget-backend.herokuapp.com/auth', body, { 'headers': headers }).subscribe((res) => {
             console.log(res);
             this.userRecord['username'] = data.username;
             this.userRecord['password'] = data.password;
